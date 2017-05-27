@@ -1,0 +1,424 @@
+/*reset*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	text-decoration: none;
+}
+*{
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+}
+
+ /*my styles*/
+.clear-fix{
+	float: none;
+}
+body{
+	font-family: 'Montserrat', sans-serif;
+	background: #fff;
+	/*padding: 70px 2vw 0;*/
+	/*padding-bottom: 30px;*/
+}
+button{
+	font-family: 'Montserrat', sans-serif;
+}
+section{
+	vertical-align: top;
+	display: inline-block;
+}
+h1{
+	text-align: center;
+	margin-bottom: 30px;
+}
+.score{
+	margin-top: 30px;
+    width: 260px;
+	padding: 10px;
+	border: 3px solid #104E8B;
+	color: #333333;
+	font-size: 20px;
+	margin-bottom: 20px;
+
+}
+.score span{
+	font-size: 30px;
+	text-transform: uppercase;
+	font-style: italic;
+}
+.tooltip_sel_tech{
+	width: 260px;
+    font-size: 24px;
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 26px;
+}
+.buttons{
+	/*margin-left: 12vw;*/
+	margin-left: 200px;
+	/*max-width: 30vw;*/
+	margin-right: 15vw;
+	margin-top: 150px;
+	width: 260px;
+}
+.buttons button{
+	/*transition: .4s all;*/
+	display: block;
+	width: 260px;
+	height: 50px;
+	margin-bottom: 0px;
+	background: #104E8B;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 17px;
+	border: 1px solid transparent;
+	border-bottom: 1px solid #000000;
+	cursor: pointer;
+	outline: none;
+}
+.buttons .clicked{
+	background: #333333;
+}
+.buttons button:hover{
+	background: #0a0f44;
+	/*color: #ff0000;*/
+}
+#canvas{
+	/*border: 1px solid #888;*/
+	/*cursor: url(../img/glove_c6.png), auto;*/
+}
+.body_p{
+	transition: .4s all;
+	position: absolute;
+    z-index: 2;
+    opacity: 0;
+	cursor: url(../Images/glove_c6.png), auto;
+}
+.body_p:hover{
+	background: #ff0000;
+	opacity: .60;
+}
+/*body*/
+.head{
+    width: 80px;
+    height: 88px;
+
+    /*border: 1px solid;*/
+    border-radius: 50%;
+	top: 4px;
+    left: 90px;
+}
+.torso{
+	width: 100px;
+    height: 120px;
+    top: 85px;
+    left: 84px;
+}
+.groin{
+	width: 105px;
+    height: 70px;
+    top: 205px;
+    left: 75px;
+}
+.legs{
+	width: 164px;
+    height: 220px;
+    top: 270px;
+    left: 54px;
+}
+
+.fighter_s{
+	transition: .4s all;
+	position: relative;
+	margin-top: 100px;
+	width: 250px;
+}
+.fighter{
+	height: 500px;
+	max-width: 340px;
+    top: 0;
+    left: 0;	
+	position: relative;
+	background-image: url(../Images/fighter.jpg);
+	background-size: contain;
+	/*background-position: 10% 20%;*/
+}
+.mes_for_hit{
+	text-align: center;
+    top: 300px;
+    width: 300px;
+}
+.helper_div{
+	transition: .4s all;
+	position: absolute;
+    z-index: 2;
+    cursor: default;
+}
+.hp1{
+	width: 35px;
+    height: 50px;
+    top: 296px;
+    left: 110px;   
+}
+.hp2{
+	width: 65px;
+    height: 150px;
+    top: 346px;
+    left: 110px;   
+}
+.hp3{
+    width: 25px;
+    height: 77px;
+    top: 276px;
+    left: 200px;	
+}
+
+.throw_f{
+	animation: throw 1.5s linear; 
+}
+.damage_circle{
+	position: absolute;
+	z-index: 3;
+	top: 0;
+	left: 0;
+	border: 3px solid #ff0000;
+	border-radius: 50%;
+	width: 0;
+	height: 0px;
+	opacity: 0;
+	animation: circle .5s linear;
+}
+.shake_f{
+	animation: shake .4s linear;
+}
+
+/*started screen*/
+.started_screen{
+	position: absolute;
+	padding-bottom: 50px;
+	width: 100%;
+	height: inherit;
+	z-index: 98;
+	background: #fff;
+	left: 0;
+	top: 0;
+	opacity: 1;	
+	transition: 1s all;
+}
+.started_screen .fighter{
+	margin: 340px auto 30px;
+    right: 0;
+}
+.started_screen h2{
+	text-align: center;
+	font-size: 30px;
+	margin-top: 150px;
+}
+.begin_btn{
+    background: #104E8B;
+    color: #fff;
+    font-size: 22px;		
+	width: 240px;
+	height: 50px;
+	margin: 40px auto;
+	display: block;
+	border-color: #333333;
+}
+.begin_btn:hover{
+	background: #333333;
+	border-color: #333333;
+}
+.hide{
+	opacity: 0;
+}
+.right_ss{
+	position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;	
+}
+#switcher_audio{
+	background: url(../Images/m_on.jpg);
+	background-size: cover;
+	border: 0;
+	color: #fff;
+	position: absolute;
+	top: 100px;
+	right: 0px;
+	left: 0px;
+	margin: 0 auto;
+	z-index: 99;
+    padding: 5px 10px;
+    border-radius: 15px;	
+    width: 40px;
+    height: 40px;
+	outline: none;
+	cursor: pointer;
+}
+#switcher_audio.swit_mod{
+	margin-left: 310px;
+	position: absolute;
+}
+.navbar-default .navbar-nav > li > a{
+	font-size: 14px;
+}
+/*#switcher_audio:hover{
+	background: #666;	
+}
+*/
+.option_f{
+	display: inline-block;
+}
+.ft_ss1{
+	margin-top: 40px;
+	/*animation: anim_intro 5s linear infinite;*/
+	background-image: url(../Images/hit1.gif);
+	background-size: inherit;
+	background-position: center;
+	margin-bottom: 30px;	
+	max-width: 360px;
+	height: 300px;
+}
+.b-mt50{
+	/*padding-top: 50px;*/
+    position: absolute;
+    top: 50px;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    font-size: 14px;
+    font-weight: 100;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@media (max-width: 992px){
+	#switcher_audio.swit_mod{
+		position: relative;
+	}
+	.started_screen{
+		padding-bottom: 0;
+	}
+	.b-mt50{
+		top: 93px;
+	}
+	.buttons, .fighter_s, #switcher_audio.swit_mod{
+		display: block;
+    	margin: 0 auto;
+	}
+	.buttons{
+		margin-top: 120px;
+	}
+	.fighter_s{
+		margin-bottom: 50px;
+		margin-top: 30px;
+		display: none;
+	}
+	.ft_ss1{
+		width: 290px;
+		height: 260px;
+	}
+	.option_f{
+		display: block;
+	}
+	.mes_for_hit{
+		top: -120px;
+	}
+	#switcher_audio.swit_mod{
+		margin-top: 50px;
+	}
+	#switcher_audio{
+		margin-top: 30px;
+	}
+/*	.started_screen{
+		height: 107vh;
+	}*/
+	.started_screen .fighter{
+		margin-top: 330px; 
+	}
+	.started_screen h2{
+		margin-top: 175px;
+	}
+}
+@media (max-width: 768px){
+	#switcher_audio{
+		top: 50px;
+	}
+	.started_screen h2{
+		margin-top: 145px;
+	}
+	.buttons{
+		margin-top: 90px;
+	}
+}
+
+@keyframes throw {
+    0% {transform: rotate(0deg);}
+    20% {transform: rotate(90deg);}
+    50% {transform: rotate(90deg);}
+    100% {transform: rotate(0deg);}
+}
+
+@keyframes circle {
+	0% {width: 0px; height: 0px; opacity: 1;}
+	25% {width: 10px; height: 10px; opacity: .8;}
+	50% {width: 20px; height: 20px; opacity: .6;}
+	75% {width: 30px; height: 30px; opacity: .4;}
+	100% {width: 40px; height: 40px; opacity: .2;}
+}
+
+@keyframes shake {
+    0% {top: -10px;}
+    /*25% {top: 5px;}*/
+    50% {top: 10px;}
+    /*75% {top: 5px;}*/
+    100% {top: 0px;}
+}
+
+@keyframes anim_intro {
+	0%   {	background-image: url(../Images/hit1.jpg); }
+	30%  {	background-image: url(../Images/hit2.gif); }
+	60%  {	background-image: url(../Images/hit3.gif); }
+	90%  {	background-image: url(../Images/hit4.gif); }
+	100% {	background-image: url(../Images/hit1.gif); }
+}
